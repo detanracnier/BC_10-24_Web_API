@@ -1,0 +1,20 @@
+.hidden {
+    display:none;
+}
+
+#question {
+    margin-bottom:5px;
+}
+
+#choice_list {
+    list-style: none;
+    padding-left:0;
+}
+
+#choiceList li {
+    background-color: slateblue;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+    margin-bottom:5px;
+}
