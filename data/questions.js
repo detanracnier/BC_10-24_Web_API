@@ -1,42 +1,60 @@
 let questions = [
     {
-        "question": "Example question 1",
+        "question": "Inside which HTML element do we put the JavaScript?",
         "choices": [
-            "false",
-            "false",
-            "correct",
-            "false"
+            "javascript",
+            "scripting",
+            "js",
+            "script"
         ],
-        "answer": "correct"
+        "answer": "script"
     },
     {
-        "question": "Example question 2",
+        "question": "What is the correct JavaScript syntax to change the content of the HTML element <p id=\"demo\">",
         "choices": [
-            "correct",
-            "false",
-            "false",
-            "false"
+            "document.getElementByName(\"p\").innerHTML = ",
+            "document.getElement(\"p\").innerHTML = ",
+            "document.getElementById(\"demo\").innerHTML = ",
+            "#demo.innerHTML = "
         ],
-        "answer": "correct"
+        "answer": "document.getElementById(\"demo\").innerHTML = "
     },
     {
-        "question": "Example question 3",
+        "question": "Where is the correct place to insert a JavaScript?",
         "choices": [
-            "correct",
-            "false",
-            "false",
-            "false"
+            "The <body> section",
+            "Both the <head> section and the <body> section are correct",
+            "The <head> section",
+            "None of the above"
         ],
-        "answer": "correct"
+        "answer": "The <body> section"
     },
     {
-        "question": "Example question 4",
+        "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
         "choices": [
-            "correct",
-            "false",
-            "false",
-            "false"
+            "<script name=\"xxx.js\"",
+            "<script src=\"xxx.js\"",
+            "<script href=\"xxx.js\"",
+            "<script path=\"xxx.js\""
         ],
-        "answer": "correct"
+        "answer": "<script src=\"xxx.js\""
+    },
+    {
+        "question": "The external JavaScript file must contain the <script> tag.",
+        "choices": [
+            "True",
+            "False"
+        ],
+        "answer": "False"
+    },
+    {
+        "question": "How do you write \"Hello World\" in an alert box?",
+        "choices": [
+            "alert(\"Hello World\");",
+            "msg(\"Hello World\");",
+            "alertBox(\"Hello World\");",
+            "msgBox(\"Hello World\");"
+        ],
+        "answer": "alert(\"Hello World\");"
     }
 ]

@@ -8,14 +8,20 @@ let choiceList = document.querySelector("#choice_list");
 let quizCompleteContainer = document.querySelector("#quiz_complete_container");
 let finalScoreLabel = document.querySelector("#final_score_label");
 let saveScoreBtn = document.querySelector("#save_score");
+let initialsInputEL = document.querySelector("#initial_input");
 
 
 let timeTotal = 75;
 let questionIndex = 0;
 let score = 0;
+let finalScore = 0;
 let myTimer;
+let userScore = JSON.parse(localStorage.getItem("userScore"));
+if(userScore === null){
+    userScore = [];
+}
 
-
+//initialize quiz
 function startQuiz() {
     quizContainer.classList.remove("hidden");
     welcomeMessage.classList.add("hidden");
@@ -24,7 +30,7 @@ function startQuiz() {
     choiceList.addEventListener("click",checkAnswer);
 }
 
-//returns a timer that counts down each second
+//returns a timer that counts down each second and updates the timer HTML element
 function startTimer(){
     let myTimer = setInterval(
         function(){
@@ -64,11 +70,13 @@ function checkAnswer(event){
     if(target.tagName==="LI"){
         //if correct answer is clicked
         if(target.textContent === questions[questionIndex-1].answer){
-            score+=15;
+            score+=15; //increase score
         //if wrong answer is clicked
         } else {
-            timeTotal-=10;
+            timeTotal-=10; //reduce time available
             timerEl.textContent=timeTotal;
+            let bodyEl = document.querySelector("#body");
+            flashRed(bodyEl);
         }
         if(questionIndex===questions.length){
             endQuiz();
@@ -78,9 +86,19 @@ function checkAnswer(event){
     };
 }
 
+//flash screen red if answer is wrong
+function flashRed(element){
+    element.style.backgroundColor = "red";
+    let flashTimer = setTimeout(function (){
+        element.style.backgroundColor = "white";
+        clearTimeout(flashTimer);
+    },
+    100);
+}
+
 //stop timer, display results
 function endQuiz(){
-    let finalScore = score+timeTotal;
+    finalScore = score+timeTotal;
     clearInterval(myTimer);
     quizContainer.classList.add("hidden");
     quizCompleteContainer.classList.remove("hidden");
@@ -89,9 +107,25 @@ function endQuiz(){
 
 //add score to scores list
 function recordScore(){
-
+    let initials = initialsInputEL.value;
+    userScore.push({"initials":initials, "score":finalScore});
+    localStorage.setItem("userScore",JSON.stringify(userScore));
+    window.location = "./scores.html";
 }
 
 timerEl.textContent=timeTotal;
 startBtn.addEventListener("click",startQuiz);
 saveScoreBtn.addEventListener("click",recordScore);
+
+//check that input is not empty
+initialsInputEL.addEventListener("keyup",function(event){
+    if(initialsInputEL.value===""){
+        saveScoreBtn.disabled=true;
+    } else {
+        saveScoreBtn.disabled=false;
+        //check if return was pressed to submit initials
+        if(event.keyCode=== 13){
+            recordScore();
+        }
+    }
+});

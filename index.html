@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body id="body">
     <div class="container">
         <div class="row justify-content-center pt-3">
             <div class="col-4">
                 <a href="./scores.html">View scores</a>
             </div>
             <div class="col-4 text-right">
-                <div id="timer"></div>
+                <p>Time remaining: <span id="timer"></span></p>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
         </div>
 
         <!-- quiz container -->
-        <div id="quiz_container" class="card mx-auto hidden" style="width: 18rem;">
+        <div id="quiz_container" class="card mx-auto hidden" style="width: 30rem;">
             <div class="card-body">
                 <div id="question"></div>
                 <ol id="choice_list">
@@ -41,12 +41,14 @@
         <div id="quiz_complete_container" class="card mx-auto hidden" style="width: 18rem;">
             <div class="card-body" style="text-align: center;">
                 <h5 id="final_score_label" class="card-title"></h5>
-                <button id="save_score">Save Score</button>
+                <input id="initial_input" maxlength="3" type="text" placeholder="enter initials">
+                <button id="save_score" disabled="true">Save Score</button>
             </div>
         </div>
     </div>
+    <!-- questions borrowed from w3schools... -->
     <script src="./data/questions.js"></script>
-    <script src="./javascript/script.js"></script>
+    <script src="./javascript/quiz_script.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,15 @@
+#body {
+    transition: background-color 0.1s ease-out;
+    background-color: white;
+}
+
 .hidden {
     display:none;
 }
 
 #question {
     margin-bottom:5px;
+    font-weight: bold;
 }
 
 #choice_list {
@@ -11,10 +17,15 @@
     padding-left:0;
 }
 
-#choiceList li {
+#choice_list li {
     background-color: slateblue;
     color: white;
     border-style: none;
     border-radius: 5px;
     margin-bottom:5px;
+    padding-left:15px;
+}
+
+#initial_input {
+    margin-bottom: 10px;
 }
