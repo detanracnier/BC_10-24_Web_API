@@ -12,6 +12,5 @@ A timed coding quiz with multiple-choice questions. This app will run in the bro
 ## Deployed sight
 [here](https://detanracnier.github.io/BC_10-24_Web_API/)
 
-Design reflows for mobile to create a better user experiance
 ![screenshot of deployed web page](./images/readme_screenshot.jpg)
 ![screenshot of deployed web page](./images/readme_screenshot2.jpg)
